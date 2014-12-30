@@ -6,8 +6,8 @@ class MapPatternTest < Minitest::Test
 
   def test_capitalize
     names = ["alice", "bob", "charlie"]
-    capitalized_names = []
-    names.each do |name|
+    capitalized_names = [] #created an empty array
+    names.each do |name| #each item in array should capitalize itself and then add itself to the array called capitalized_names
       capitalized_names << name.capitalize
     end
     assert_equal ["Alice", "Bob", "Charlie"], capitalized_names
@@ -15,52 +15,64 @@ class MapPatternTest < Minitest::Test
 
   def test_doubles
     numbers = [1, 2, 3, 4, 5]
-    doubles = []
+    doubles = [] #so you created an empty array
     numbers.each do |number|
-      # Your code goes here
+      doubles << number * 2 # Your code goes here
     end
     assert_equal [2, 4, 6, 8, 10], doubles
   end
 
   def test_squares
-    skip
     numbers = [1, 2, 3, 4, 5]
     squares = []
-    # Your code goes here
+    numbers.each do |number| # Your code goes here
+      squares << number ** 2
+    end 
     assert_equal [1, 4, 9, 16, 25], squares
   end
 
   def test_lengths
-    skip
     names = ["alice", "bob", "charlie", "david", "eve"]
-    # Your code goes here
+    lengths = [] # Your code goes here
+    names.each do |name|
+      lengths << name.length
+    end
     assert_equal [5, 3, 7, 5, 3], lengths
   end
 
   def test_normalize_zip_codes
-    skip
     numbers = [234, 10, 9119, 38881]
-    # Your code goes here
+    zip_codes = [] # Your code goes here
+    numbers.each do |number|
+      zip_codes << "%05d" % number 
+    end
     assert_equal ["00234", "00010", "09119", "38881"], zip_codes
   end
 
   def test_backwards
-    skip
     names = ["alice", "bob", "charlie", "david", "eve"]
-    # Your code goes here
+    backwards = []     # Your code goes here
+    names.each do |name|
+      backwards << name.reverse
+    end
     assert_equal ["ecila", "bob", "eilrahc", "divad", "eve"], backwards
   end
 
   def test_words_with_no_vowels
-    skip
     words = ["green", "sheep", "travel", "least", "boat"]
-    # Your code goes here
+    without_vowels = [] # Your code goes here
+    words.each do |word|
+      without_vowels << word.delete("aeiou")
+    end
     assert_equal ["grn", "shp", "trvl", "lst", "bt"], without_vowels
   end
 
   def test_trim_last_letter
-    skip
     animals = ["dog", "cat", "mouse", "frog", "platypus"]
+    trimmed = []
+    animals.each do |animal|
+      trimmed << animal[0...-1]
+    end
     # Your code goes here
     assert_equal ["do", "ca", "mous", "fro", "platypu"], trimmed
   end
