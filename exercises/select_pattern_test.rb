@@ -1,6 +1,6 @@
 gem 'minitest'
 require 'minitest/autorun'
-require 'minitest/pride'
+# require 'minitest/pride'
 
 class SelectPatternTest < Minitest::Test
 
@@ -100,7 +100,6 @@ class SelectPatternTest < Minitest::Test
     elements.each do |element|
       hashes << element if element.class == Hash 
     end
-    # Your code goes here
     assert_equal [{:dog=>"fido"}, {:stuff=>"things"}], hashes
   end
 
